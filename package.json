@@ -1,0 +1,8 @@
+{
+    "name": "trademe_real_estate",
+    "version": "0.0.1",
+    "dependencies": {
+        "oauth": "0.9.15",
+        "mysql": "^2.5.4"
+    }
+}
