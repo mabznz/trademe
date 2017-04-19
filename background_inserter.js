@@ -44,7 +44,7 @@ oauth.get(
         if (error) console.error(error);
 
         var output = JSON.parse(data);
-
+        console.log(output);
         output.forEach( function (locality)
         {
             var insert =
@@ -58,12 +58,34 @@ oauth.get(
                     locality.LocalityId + ',' +
                     '"' + locality.Name + '"' +
                 ')';
-            console.log(insert);
+            //console.log(insert);
+
             connection.query(insert, function (error, results, fields) {
                 if (error) throw error;
-                console.log('inserted ' + results.affectedRows + ' rows');
+                console.log('inserted locality ' + results.affectedRows + ' rows');
             });
-
+            locality.Districts.forEach( function (district)
+            {
+                var insert =
+                    'INSERT INTO districts \
+                    ( \
+                        id, \
+                        locality_id, \
+                        description \
+                    ) \
+                    VALUES \
+                    ( \
+                        ?, \
+                        ?, \
+                        ? \
+                    )';
+                console.log(insert);
+                connection.query(insert, [district.DistrictId, locality.LocalityId, district.Name], function (error, results, fields) {
+                    if (error) throw error;
+                    console.log('inserted district ' + results.affectedRows + ' rows');
+                });
+                //console.log(insert + district.DistrictId + locality.LocalityId );*/
+            });
         });
         connection.end();
 });
