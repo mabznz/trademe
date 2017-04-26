@@ -1,0 +1,22 @@
+{
+  "name": "web_graphs",
+  "version": "1.0.0",
+  "description": "Trademe server app to display graphs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabznz/trademe.git"
+  },
+  "author": "Byron Mabbett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabznz/trademe/issues"
+  },
+  "homepage": "https://github.com/mabznz/trademe#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
