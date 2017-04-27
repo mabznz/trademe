@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/mabznz/trademe#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "pug": ">= 0.0.1",
+    "body-parser": ">= 0.0.1",
+    "method-override": ">= 0.0.1"
   }
 }

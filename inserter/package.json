@@ -1,8 +1,24 @@
 {
-    "name": "trademe_real_estate",
-    "version": "0.0.1",
-    "dependencies": {
-        "oauth": "0.9.15",
-        "mysql": "^2.5.4"
-    }
+  "name": "trademe_real_estate",
+  "version": "0.0.1",
+  "dependencies": {
+    "mysql": "^2.5.4",
+    "oauth": "0.9.15"
+  },
+  "description": "Graphing Trademe real estate",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabznz/trademe.git"
+  },
+  "author": "Byron Mabbett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabznz/trademe/issues"
+  },
+  "homepage": "https://github.com/mabznz/trademe#readme"
 }
