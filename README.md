@@ -10,29 +10,33 @@ These are all repeatable at present and are for dev/test purposes only.
 
 ```bash
 cd inserter
-mysql -u root -p < create_trademe_db.sql
-
+mysql -p < create_trademe_db.sql
+```
 
 2. Create lookup data tables
 
 ```bash
 mysql -u trademe_app -p trademe < create_localities_table.sql
-
+```
 
 3. Create fact table
 
 ```bash
 mysql -u trademe_app -p trademe < create_residential_table.sql
+```
 
 4. Run lookup inserter
 
 ```bash
+npm install
 node localities_setup.js
+```
 
 5. Run fact inserter (Does not get all records yet)
 
 ```bash
 node insert_data.js
+```
 
 For now that should be get enough data to run the web graphs app off.
 
