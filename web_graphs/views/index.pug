@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  //script(src='/javascripts/index_graph.js')
+  ul
+  each row in items
+    li= row.description
+      
+  else
+    li There are no results.
