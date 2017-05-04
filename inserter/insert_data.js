@@ -60,7 +60,7 @@ connection.query(select, function(error, rows, fields) {
 
 //replace any “trademe.co.nz” URL with “tmsandbox.co.nz
 oauth.get(
-    //https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?adjacent_suburbs=false&district=81
+
     'https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?district=' + row.id,
     null,
     null,
@@ -75,6 +75,12 @@ oauth.get(
             var e = "new " + listing.StartDate.split('/')[1];
             var listingDate = eval(e);
 
+            // Convert PriceDisplay to a number if possible and store in seperate column
+            var price = listing.PriceDisplay.split('$')[1];
+            if (price != undefined) {
+              price = parseInt(price.replace(',', ''));
+            }
+
             var upsert =
                 'INSERT INTO residential \
                 ( \
@@ -82,16 +88,18 @@ oauth.get(
                     district_id, \
                     listing_date, \
                     price, \
+                    price_display, \
                     bedrooms, \
                     type, \
                     description \
                 ) \
                 VALUES \
-                ( ?, ?, ?, ?, ?, ?, ? ) \
+                ( ?, ?, ?, ?, ?, ?, ?, ? ) \
                 ON DUPLICATE KEY UPDATE \
                 district_id = ?, \
                 listing_date = ?, \
                 price = ?, \
+                price_display = ?, \
                 bedrooms = ?, \
                 type = ?, \
                 description = ?;';
@@ -100,12 +108,14 @@ oauth.get(
                     listing.ListingId,
                     listing.DistrictId,
                     listingDate,
+                    price,
                     listing.PriceDisplay,
                     listing.Bedrooms,
                     listing.PropertyType,
                     listing.Title,
                     listing.DistrictId,
                     listingDate,
+                    price,
                     listing.PriceDisplay,
                     listing.Bedrooms,
                     listing.PropertyType,

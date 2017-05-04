@@ -10,6 +10,8 @@ var district_controller = require('../controller/districtController');
 
 router.get('/', listing_controller.index);
 
-router.get('/listings', listing_controller.listing_list)
+router.get('/api/count_listings_locality/', listing_controller.count_listings_locality)
+
+router.get('/api/price_locality/', listing_controller.price_locality)
 
 module.exports = router;

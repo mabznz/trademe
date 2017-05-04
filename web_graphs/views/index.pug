@@ -6,11 +6,19 @@ block content
   
   script(src='/javascripts/index_graph.js')
   
-  svg(class='bar')
+  h2 Price By Locality
     
-  ul
-  each row in items
-    li= row.description
-      
-  else
-    li There are no results.
+  svg(class='price_locality_graph')
+  
+  h2 Total Listings By Locality
+  
+  svg(class='locality_count_listings_graph')
+    
+  
+    
+  //ul
+  //each row in items
+  //  li= row.description
+  //    
+  //else
+  //  li There are no results.
